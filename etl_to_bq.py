@@ -49,8 +49,3 @@ def ergast_bq_etl(request):
          load_job.result()
          destination_table = bq_client.get_table(table_id)          
     return "OK"
-
-
-
-
-
