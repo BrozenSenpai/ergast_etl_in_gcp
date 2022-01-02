@@ -35,6 +35,7 @@ def ergast_bq_etl(request):
         blob = bucket.blob(f"csv/{file}")
         blob.upload_from_filename(f"/tmp/csv/{file}")
     shutil.rmtree('/tmp/csv')
+    
      # bigquery load
      for csv in list(storage_client.list_blobs(bucket)):
          table_id = f"project-123456.f1_ds.f1_{re.split('[/.]', csv.name)[1]}"
